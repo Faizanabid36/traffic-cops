@@ -6,18 +6,17 @@ public class Guard : MonoBehaviour
 {
     public Transform pathHolder;
 
-    private Vector3 currentPosition;
-    private int currentPositionIndex;
-    private Vector3[] waypoints;
+
+    public float speed = 5f;
+    public float waitTime = 1.5f;
 
     private void Start()
     {
-        waypoints = new Vector3[pathHolder.childCount];
+        Vector3[] waypoints = new Vector3[pathHolder.childCount];
         for (int i = 0; i < waypoints.Length; i++)
             waypoints[i] = pathHolder.GetChild(i).position;
-        currentPosition = waypoints[0];
-        currentPositionIndex = 0;
-        transform.position = currentPosition;
+
+        StartCoroutine(TraversePath(waypoints));
     }
 
     private void OnDrawGizmos()
@@ -33,9 +32,22 @@ public class Guard : MonoBehaviour
         Gizmos.DrawLine(previousPosition, startPosition);
     }
 
-    private void Update()
+    IEnumerator TraversePath(Vector3[] wayPoints)
     {
-        gameObject.transform.Translate(waypoints[(++currentPositionIndex) % waypoints.Length] * .5f);
-        //gameObject.transform.position = waypoints[];
+        transform.position = wayPoints[0];
+        int targetIndex = 1;
+
+        Vector3 targetWayPoint = wayPoints[targetIndex];
+        while (true)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, targetWayPoint, speed * Time.deltaTime);
+            if(transform.position == targetWayPoint)
+            {
+                targetIndex = (targetIndex + 1) % wayPoints.Length;
+                targetWayPoint = wayPoints[targetIndex];
+                yield return new WaitForSeconds(waitTime);
+            }
+            yield return null;
+        }
     }
 }
