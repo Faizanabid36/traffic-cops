@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 6;
+    public float speed = 40f;
 
 
     public PathCreator pathCreator;
@@ -30,12 +30,6 @@ public class PlayerController : MonoBehaviour
             transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
             transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
         }
-    }
-
-    private void FixedUpdate()
-    {
-        transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
-        transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
     }
 
     private void OnDestroy()
