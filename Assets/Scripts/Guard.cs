@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Guard : MonoBehaviour
@@ -16,6 +16,8 @@ public class Guard : MonoBehaviour
     private Light spotlight;
     private float viewAngle;
     private Transform player;
+
+    public Text gameOverText;
 
 
     private void Start()
@@ -35,7 +37,10 @@ public class Guard : MonoBehaviour
     private void Update()
     {
         if (IsPlayerInRange())
+        {
             spotlight.color = Color.red;
+            gameOverText.gameObject.SetActive(true);
+        }
         else
             spotlight.color = spotlightColor;
     }
