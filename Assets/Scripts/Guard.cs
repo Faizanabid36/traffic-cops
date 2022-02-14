@@ -6,9 +6,7 @@ public class Guard : MonoBehaviour
 {
     public Transform pathHolder;
 
-    public float rotationSpeed = 90f;
-    public float speed = 5f;
-    public float waitTime = 1.5f;
+    public float speed = 5f, waitTime = 1.5f, rotationSpeed = 90f;
     public float viewDistance;
     public LayerMask viewMask;
     public Color spotlightColor;
@@ -16,9 +14,6 @@ public class Guard : MonoBehaviour
     private Light spotlight;
     private float viewAngle;
     private Transform player;
-
-    public Text gameOverText;
-
 
     private void Start()
     {
@@ -36,28 +31,13 @@ public class Guard : MonoBehaviour
 
     private void Update()
     {
-        if (IsPlayerInRange())
+        if (Helpers.IsPlayerInRange(transform, player, viewDistance, viewAngle, viewMask))
         {
             spotlight.color = Color.red;
-            gameOverText.gameObject.SetActive(true);
+            GameManager.gameOver = true;
         }
         else
             spotlight.color = spotlightColor;
-    }
-
-    private bool IsPlayerInRange()
-    {
-        if (Vector3.Distance(transform.position, player.position) < viewDistance)
-        {
-            Vector3 directionToPlayer = (player.position - transform.position).normalized;
-            float angleBetweenGuardAndPlayer = Vector3.Angle(transform.forward, directionToPlayer);
-            if (angleBetweenGuardAndPlayer < viewAngle / 2f)
-            {
-                if (!Physics.Linecast(transform.position, player.position, viewMask))
-                    return true;
-            }
-        }
-        return false; 
     }
 
     IEnumerator TurnToAngle(Vector3 target)

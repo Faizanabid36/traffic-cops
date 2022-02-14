@@ -49,58 +49,12 @@ public class GuardRotation : MonoBehaviour
 
     private void Update()
     {
-        if (IsPlayerInRange())
+        if (Helpers.IsPlayerInRange(transform, player, viewDistance, viewAngle, viewMask))
+        {
             spotlight.color = Color.red;
+            GameManager.gameOver = true;
+        }
         else
             spotlight.color = spotlightColor;
     }
-
-    private bool IsPlayerInRange()
-    {
-        if (Vector3.Distance(transform.position, player.position) < viewDistance)
-        {
-            Vector3 directionToPlayer = (player.position - transform.position).normalized;
-            float angleBetweenGuardAndPlayer = Vector3.Angle(transform.forward, directionToPlayer);
-            if (angleBetweenGuardAndPlayer < viewAngle / 2f)
-            {
-                if (!Physics.Linecast(transform.position, player.position, viewMask))
-                    return true;
-            }
-        }
-        return false;
-    }
-
-    IEnumerator TurnToAngle(Vector3 target)
-    {
-        Vector3 directionToLook = (target - transform.position).normalized;
-        float targetAngle = 90 - Mathf.Atan2(directionToLook.z, directionToLook.x) * Mathf.Rad2Deg;
-
-        while (Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.y, targetAngle)) > 0.05f)
-        {
-            float angle = Mathf.MoveTowardsAngle(transform.eulerAngles.y, targetAngle, rotationSpeed * Time.deltaTime);
-            transform.eulerAngles = Vector3.up * angle;
-            yield return null;
-        }
-    }
-
-    //IEnumerator TraversePath(Vector3[] wayPoints)
-    //{
-    //    transform.position = wayPoints[0];
-    //    int targetIndex = 1;
-
-    //    Vector3 targetWayPoint = wayPoints[targetIndex];
-    //    transform.LookAt(targetWayPoint);
-    //    while (true)
-    //    {
-    //        transform.position = Vector3.MoveTowards(transform.position, targetWayPoint, speed * Time.deltaTime);
-    //        if (transform.position == targetWayPoint)
-    //        {
-    //            targetIndex = (targetIndex + 1) % wayPoints.Length;
-    //            targetWayPoint = wayPoints[targetIndex];
-    //            yield return new WaitForSeconds(waitTime);
-    //            yield return StartCoroutine(TurnToAngle(targetWayPoint));
-    //        }
-    //        yield return null;
-    //    }
-    //}
 }

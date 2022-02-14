@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 40f;
+    public float speed = 40;
 
 
     public PathCreator pathCreator;
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (pathCreator != null && Input.GetButton("Fire1"))
+        if (pathCreator != null && !GameManager.gameOver && Input.GetButton("Fire1"))
         {
             distanceTravelled += speed * Time.deltaTime;
             transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
