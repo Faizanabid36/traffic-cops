@@ -111,9 +111,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pathHolder: {fileID: 0}
-  rotationSpeed: 90
   speed: 5
   waitTime: 1.5
+  rotationSpeed: 90
   viewDistance: 5
   viewMask:
     serializedVersion: 2

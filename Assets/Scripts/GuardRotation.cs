@@ -5,8 +5,6 @@ public class GuardRotation : MonoBehaviour
 {
 
     public GuardRotationList[] rotationList;
-
-    public float rotationSpeed = 90f;
     public float viewDistance;
     public LayerMask viewMask;
     public Color spotlightColor;
@@ -14,6 +12,7 @@ public class GuardRotation : MonoBehaviour
     private Light spotlight;
     private float viewAngle;
     private Transform player;
+    private Animator animator;
 
 
     private void Start()
@@ -22,6 +21,7 @@ public class GuardRotation : MonoBehaviour
         spotlightColor = spotlight.color;
         viewAngle = spotlight.spotAngle;
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        animator = GetComponent<Animator>();
 
         StartCoroutine(RotateGuard(rotationList));
     }
@@ -31,20 +31,30 @@ public class GuardRotation : MonoBehaviour
         int currentIndex = 0;
         while (true)
         {
-            float startRotation = transform.eulerAngles.y;
-            float endRotation = startRotation + rotations[currentIndex].angle;
             float t = 0.0f;
-            while (t < rotations[currentIndex].duration)
+            if (rotations[currentIndex].duration > 0)
+            {
+                Debug.Log("LEFT");
+                animator.SetBool("isTurningLeft", true);
+            }
+            else
+            {
+                Debug.Log("Right");
+                animator.SetBool("isTurningRight", true);
+            }
+            while (t < Mathf.Abs(rotations[currentIndex].duration))
             {
                 t += Time.deltaTime;
-                float yRotation = Mathf.Lerp(startRotation, endRotation, t / rotations[currentIndex].duration) % 360.0f;
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, yRotation, transform.eulerAngles.z);
+                //float yRotation = Mathf.Lerp(startRotation, endRotation, t / rotations[currentIndex].duration) % 360.0f;
+                //transform.eulerAngles = new Vector3(transform.eulerAngles.x, yRotation, transform.eulerAngles.z);
                 yield return null;
             }
 
+            animator.SetBool("isTurningLeft", false);
+            animator.SetBool("isTurningRight", false);
+            yield return new WaitForSeconds(rotations[currentIndex].waitAfterRotation);
             currentIndex = (currentIndex + 1) % rotations.Length;
-            yield return new WaitForSeconds(rotations[currentIndex].duration);
-        }   
+        }
     }
 
     private void Update()
