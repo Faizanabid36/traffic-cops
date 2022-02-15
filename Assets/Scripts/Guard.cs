@@ -6,14 +6,15 @@ public class Guard : MonoBehaviour
 {
     public Transform pathHolder;
 
-    public float speed = 5f, waitTime = 1.5f, rotationSpeed = 90f;
-    public float viewDistance;
+    public float speed = 5f, waitTime = 1.5f, rotationSpeed = 60f;
+    public float viewDistance, rotationPrecision = 0.05f, angleToTakeTurnFrom = 0f;
     public LayerMask viewMask;
     public Color spotlightColor;
 
     private Light spotlight;
     private float viewAngle;
     private Transform player;
+    private Animator animator;
 
     private void Start()
     {
@@ -21,6 +22,7 @@ public class Guard : MonoBehaviour
         spotlightColor = spotlight.color;
         viewAngle = spotlight.spotAngle;
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        animator = GetComponent<Animator>();
 
         Vector3[] waypoints = new Vector3[pathHolder.childCount];
         for (int i = 0; i < waypoints.Length; i++)
@@ -44,13 +46,25 @@ public class Guard : MonoBehaviour
     {
         Vector3 directionToLook = (target - transform.position).normalized;
         float targetAngle = 90 - Mathf.Atan2(directionToLook.z, directionToLook.x) * Mathf.Rad2Deg;
-
-        while (Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.y, targetAngle)) > 0.05f)
+        if (targetAngle < angleToTakeTurnFrom)
         {
-            float angle = Mathf.MoveTowardsAngle(transform.eulerAngles.y, targetAngle, rotationSpeed * Time.deltaTime);
-            transform.eulerAngles = Vector3.up * angle;
+            animator.SetBool("isTurningRight", true);
+            animator.SetBool("isTurningLeft", false);
+        }
+        else
+        {
+            animator.SetBool("isTurningLeft", true);
+            animator.SetBool("isTurningRight", false);
+        }
+
+        while (Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.y, targetAngle)) > rotationPrecision)
+        {
+            //float angle = Mathf.MoveTowardsAngle(transform.eulerAngles.y, targetAngle, rotationSpeed * Time.deltaTime);
+            //transform.eulerAngles = Vector3.up * angle;
             yield return null;
         }
+        animator.SetBool("isTurningRight", false);
+        animator.SetBool("isTurningLeft", false);
     }
 
     IEnumerator TraversePath(Vector3[] wayPoints)
@@ -62,13 +76,23 @@ public class Guard : MonoBehaviour
         transform.LookAt(targetWayPoint);
         while (true)
         {
+            animator.SetBool("isIdle", false);
+            animator.SetBool("isWalking", true);
             transform.position = Vector3.MoveTowards(transform.position, targetWayPoint, speed * Time.deltaTime);
+
             if (transform.position == targetWayPoint)
             {
                 targetIndex = (targetIndex + 1) % wayPoints.Length;
                 targetWayPoint = wayPoints[targetIndex];
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isIdle", true);
                 yield return new WaitForSeconds(waitTime);
+
+                //Starts Rotation
                 yield return StartCoroutine(TurnToAngle(targetWayPoint));
+                //Stop Rotation
+                //animator.SetBool("isTurningRight", false);
+                //animator.SetBool("isTurningLeft", false);
             }
             yield return null;
         }
