@@ -17,4 +17,5 @@ public class GameManager : Singleton<GameManager>
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
+    
 }
