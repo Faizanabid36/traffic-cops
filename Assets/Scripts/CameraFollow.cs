@@ -4,13 +4,7 @@ public class CameraFollow : MonoBehaviour
 {
     public Transform target;
     public Vector3 offset;
-    public float smoothSpeed = 0.3f;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        offset = new Vector3(12.5f, 40, 40);
-    }
+    public float smoothSpeed = 0.125f;
 
     private void LateUpdate()
     {
@@ -23,6 +17,5 @@ public class CameraFollow : MonoBehaviour
         Vector3 smoothFollow = Vector3.Lerp(transform.position, targetPos, smoothSpeed);
 
         transform.position = smoothFollow;
-        transform.LookAt(target);
     }
 }

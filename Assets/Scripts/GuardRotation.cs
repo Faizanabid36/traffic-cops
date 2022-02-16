@@ -34,12 +34,10 @@ public class GuardRotation : MonoBehaviour
             float t = 0.0f;
             if (rotations[currentIndex].duration > 0)
             {
-                Debug.Log("LEFT");
                 animator.SetBool("isTurningLeft", true);
             }
             else
             {
-                Debug.Log("Right");
                 animator.SetBool("isTurningRight", true);
             }
             while (t < Mathf.Abs(rotations[currentIndex].duration))
