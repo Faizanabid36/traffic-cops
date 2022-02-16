@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
     public static bool gameOver = false;
+    public static bool levelWon=false;
     public Text gameOverText;
 
     private void Update()
@@ -15,6 +16,13 @@ public class GameManager : Singleton<GameManager>
         {
             gameOver = false;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+
+     void Levelwon(){
+        if(levelWon){
+            levelWon=false;
+        Debug.Log("level won");
         }
     }
     
