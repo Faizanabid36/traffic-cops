@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class CountDown : MonoBehaviour
@@ -11,8 +10,8 @@ public class CountDown : MonoBehaviour
     public bool didTimeMinus = false;
     void Start()
     {
+        Debug.Log("HERE");
         textDisplay.GetComponent<Text>().text = "00: " + secsLeft;
-
     }
 
     // Update is called once per frame

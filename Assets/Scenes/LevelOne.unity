@@ -2260,7 +2260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &612815279
 Transform:
   m_ObjectHideFlags: 0
@@ -11901,6 +11901,10 @@ PrefabInstance:
     - target: {fileID: 1489942678193827062, guid: d94b715c414a5439caa74fac0070bcf7, type: 3}
       propertyPath: m_Name
       value: PoliceRotating
+      objectReference: {fileID: 0}
+    - target: {fileID: 1489942678193827062, guid: d94b715c414a5439caa74fac0070bcf7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2298672356763088460, guid: d94b715c414a5439caa74fac0070bcf7, type: 3}
       propertyPath: m_RootOrder
