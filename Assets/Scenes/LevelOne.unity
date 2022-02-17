@@ -899,7 +899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 13, y: 6, z: 0.55}
+  m_FollowOffset: {x: 7, y: 6, z: 0.55}
   m_XDamping: 2
   m_YDamping: 1
   m_ZDamping: 2
@@ -5523,7 +5523,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941026663}
   m_LocalRotation: {x: 0.17910238, y: -0.697301, z: 0.18684126, w: 0.66841906}
-  m_LocalPosition: {x: 37.143894, y: 6.65, z: 9.467587}
+  m_LocalPosition: {x: 31.143894, y: 6.65, z: 9.467587}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 120847607}
@@ -5705,7 +5705,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.17910238, y: -0.697301, z: 0.18684126, w: 0.66841906}
-  m_LocalPosition: {x: 37.143894, y: 6.65, z: 9.467587}
+  m_LocalPosition: {x: 31.143894, y: 6.65, z: 9.467587}
   m_LocalScale: {x: 1.51, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9139,8 +9139,8 @@ MonoBehaviour:
   editorData:
     _bezierPath:
       points:
-      - {x: -16.920816, y: -0.09915064, z: 27.331848}
-      - {x: -17.132637, y: -0.09929447, z: 23.403605}
+      - {x: -16.925697, y: -0.09915064, z: 27.339983}
+      - {x: -17.137518, y: -0.09929447, z: 23.41174}
       - {x: -17.21892, y: 0.5959414, z: 4.941071}
       - {x: -17.012625, y: 0.26111782, z: 0.10757637}
       - {x: -16.984364, y: 0.21524918, z: -0.5545807}
@@ -9172,7 +9172,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 270
       flipNormals: 1
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0
     showTransformTool: 1
