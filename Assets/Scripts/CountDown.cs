@@ -10,7 +10,7 @@ public class CountDown : MonoBehaviour
     public bool didTimeMinus = false;
     void Start()
     {
-        Debug.Log("HERE");
+        
         textDisplay.GetComponent<Text>().text = "00: " + secsLeft;
     }
 
