@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6906789449873508324}
   - component: {fileID: 5194987695327337315}
   - component: {fileID: 5194987695327337314}
+  - component: {fileID: 6042571600136901605}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -104,7 +105,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!65 &5194987695327337314
 BoxCollider:
@@ -119,3 +120,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.0999997, y: 1.5899999, z: 4.6649995}
   m_Center: {x: -0.0074433084, y: 0.7949966, z: 0.057692047}
+--- !u!114 &6042571600136901605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4961036154394633777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2559ea9a3a684834d98497cfdad75502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 40
+  pathCreator: {fileID: 0}
+  endOfPathInstruction: 0

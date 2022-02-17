@@ -1,9 +1,11 @@
-using PathCreation;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using PathCreation;
 
-public class PlayerController : MonoBehaviour
+public class SpawnVehicleMove : MonoBehaviour
 {
-    public float speed = 40;
+   public float speed = 40;
 
 
     public PathCreator pathCreator;
@@ -12,6 +14,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        GameObject gm=GameObject.Find("SpawnPath");
+        pathCreator = gm.GetComponent<PathCreator>();
         if (pathCreator != null)
         {
             pathCreator.pathUpdated += OnPathChanged;
@@ -24,7 +28,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (pathCreator != null && !GameManager.gameOver && Input.GetButton("Fire1"))
+        if (pathCreator != null && !GameManager.gameOver )
         {
             distanceTravelled += speed * Time.deltaTime;
             transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
@@ -36,5 +40,4 @@ public class PlayerController : MonoBehaviour
     // {
     //     pathCreator.pathUpdated -= OnPathChanged;
     // }
-
 }
