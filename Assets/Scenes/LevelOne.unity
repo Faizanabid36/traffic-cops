@@ -478,10 +478,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 7.5, y: 6, z: 0.55}
-  m_XDamping: 2
+  m_FollowOffset: {x: 5, y: 6, z: 0.55}
+  m_XDamping: 1
   m_YDamping: 1
-  m_ZDamping: 2
+  m_ZDamping: 1
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 1
@@ -2219,7 +2219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfbc0bf973c2a4a39893f92f1349d566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 10
   pathCreator: {fileID: 2023404050}
   endOfPathInstruction: 2
 --- !u!4 &582977486
@@ -3086,7 +3086,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941026663}
   m_LocalRotation: {x: 0.17910238, y: -0.697301, z: 0.18684126, w: 0.66841906}
-  m_LocalPosition: {x: 37.143894, y: 6.65, z: 9.467587}
+  m_LocalPosition: {x: 29.143894, y: 6.65, z: 9.467587}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 120847607}
@@ -3172,7 +3172,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.17910238, y: -0.697301, z: 0.18684126, w: 0.66841906}
-  m_LocalPosition: {x: 32.083492, y: 6.65, z: 9.469451}
+  m_LocalPosition: {x: 29.143894, y: 6.65, z: 9.467587}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3191,7 +3191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1255294145}
-  offset: {x: 6, y: 7.98, z: 0}
+  offset: {x: 6, y: 8, z: 0}
   smoothSpeed: 0.28
 --- !u!114 &963194230
 MonoBehaviour:
@@ -5268,8 +5268,8 @@ MonoBehaviour:
       - {x: -13.104067, y: 0.19999826, z: -6.5159235}
       - {x: -12.102352, y: 0.2, z: -6.6468124}
       - {x: -8.465041, y: 0.20000634, z: -7.1220813}
-      - {x: 10.734319, y: 0.19998999, z: -6.523495}
-      - {x: 14.236812, y: 0.19998999, z: -6.553923}
+      - {x: 8.60079, y: 0.19998999, z: -6.523497}
+      - {x: 12.103283, y: 0.19998999, z: -6.553925}
       isClosed: 0
       space: 0
       controlMode: 0
@@ -5287,7 +5287,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 270
       flipNormals: 1
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0
     showTransformTool: 1
@@ -5316,7 +5316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1561907620}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 5.87, y: 0.5, z: -6.385782}
+  m_LocalPosition: {x: 5.87, y: 0.25, z: -6.385782}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5730,8 +5730,8 @@ MonoBehaviour:
   Vehicles:
   - {fileID: 1981935595949527941, guid: fe360967c8dcda04eb104a797d540b0b, type: 3}
   - {fileID: 5081996352111719050, guid: be897d791b195e94f9095fd74c890e0e, type: 3}
-  - {fileID: 8679405555493837990, guid: 37a8e89f466d157498aafb11d8389920, type: 3}
-  force: 100
+  - {fileID: 7367303714174952790, guid: 5392e90a939ba42a185307533b7ddbc8, type: 3}
+  force: 75
 --- !u!4 &1732450918
 Transform:
   m_ObjectHideFlags: 0
