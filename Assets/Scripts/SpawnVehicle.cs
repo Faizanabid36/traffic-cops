@@ -30,7 +30,7 @@ public class SpawnVehicle : MonoBehaviour
     }
     // new Vector3(Random.Range(minX,maxX),transform.position.y,transform.position.z)
     IEnumerator SpawnVehicles(){
-        yield return new WaitForSeconds(Random.Range(3,6));
+        yield return new WaitForSeconds(Random.Range(1.5f,6));
         GameObject thisobject=Instantiate(Vehicles[(Random.Range(0,Vehicles.Length))],transform.position,Quaternion.identity) as GameObject ;
         
         
