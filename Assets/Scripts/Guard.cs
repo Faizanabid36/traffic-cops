@@ -37,6 +37,7 @@ public class Guard : MonoBehaviour
         {
             spotlight.color = Color.red;
             GameManager.gameOver = true;
+            UIManager.Instance.PlayerWasCaught();
         }
         else
             spotlight.color = spotlightColor;

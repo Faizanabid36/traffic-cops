@@ -8,13 +8,12 @@ public class GameManager : Singleton<GameManager>
 
     public static bool nextLevel = false,levelWon = false;
 
-    public Text gameOverText;
-
     private Scene scene;
 
     private void Update()
     {
-        if (gameOver) gameOverText.gameObject.SetActive(true);
+        if (gameOver)
+            UIManager.Instance.GameIsOver();
         if (gameOver && Input.GetButtonDown("Fire1"))
         {
             gameOver = false;
@@ -26,11 +25,6 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    //  void Levelwon(){
-    //     if(levelWon){
-    //         levelWon=false;
-    //     }
-    //  }
     void NextLevel()
     {
         nextLevel = false;

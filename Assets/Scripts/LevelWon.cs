@@ -34,8 +34,5 @@ public class LevelWon : MonoBehaviour
         yield return new WaitForSeconds(6);
         levelcompleted.gameObject.SetActive(false);
         nextLevel.gameObject.SetActive(true);
-
-        
-       
     }
 }

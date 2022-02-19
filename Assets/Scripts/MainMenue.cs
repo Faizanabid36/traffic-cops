@@ -9,7 +9,6 @@ public class MainMenue : MonoBehaviour
 
     }
     public void DoExitGame() {
-        Debug.Log("game quit");
-    //  Application.Quit();
- }
+        Application.Quit();
+    }
 }
