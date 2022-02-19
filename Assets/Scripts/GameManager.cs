@@ -12,7 +12,10 @@ public class GameManager : Singleton<GameManager>
     private void Update()
     {
         if (gameOver)
+        {
+            Debug.Log("GAME OVER");
             UIManager.Instance.GameIsOver();
+        }
         if (gameOver && Input.GetButtonDown("Fire1"))
         {
             gameOver = false;
