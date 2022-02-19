@@ -32,9 +32,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // private void OnDestroy()
-    // {
-    //     pathCreator.pathUpdated -= OnPathChanged;
-    // }
+    private void OnDestroy()
+    {
+        pathCreator.pathUpdated -= OnPathChanged;
+    }
 
 }

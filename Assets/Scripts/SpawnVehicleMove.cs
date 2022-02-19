@@ -28,7 +28,7 @@ public class SpawnVehicleMove : MonoBehaviour
 
     void Update()
     {
-        if (pathCreator != null && !GameManager.gameOver )
+        if (pathCreator != null  )
         {
             distanceTravelled += speed * Time.deltaTime;
             transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
