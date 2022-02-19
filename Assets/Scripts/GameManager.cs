@@ -1,12 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class GameManager : Singleton<GameManager>
 {
     public static bool gameOver = false;
 
-    public static bool nextLevel = false,levelWon = false;
+    public static bool nextLevel = false, levelWon = false;
 
     private Scene scene;
 
@@ -19,6 +18,7 @@ public class GameManager : Singleton<GameManager>
             gameOver = false;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+
         if (nextLevel)
         {
             NextLevel();
@@ -31,9 +31,7 @@ public class GameManager : Singleton<GameManager>
         scene = SceneManager.GetActiveScene();
         if ((scene.buildIndex <= SceneManager.sceneCountInBuildSettings))
         {
-            Debug.Log("counttt " + SceneManager.sceneCountInBuildSettings);
-            SceneManager
-                .LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         else
         {
