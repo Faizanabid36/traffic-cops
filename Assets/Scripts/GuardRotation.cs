@@ -13,6 +13,7 @@ public class GuardRotation : MonoBehaviour
     private float viewAngle;
     private Transform player;
     private Animator animator;
+    public string armToRaise = "left";
 
 
     private void Start()
@@ -59,6 +60,14 @@ public class GuardRotation : MonoBehaviour
     {
         if (Helpers.IsPlayerInRange(transform, player, viewDistance, viewAngle, viewMask))
         {
+            if (armToRaise == "left")
+            {
+                animator.SetBool("raiseLeftArm", true);
+            }
+            else if (armToRaise == "right")
+            {
+                animator.SetBool("raiseRightArm", true);
+            }
             spotlight.color = Color.red;
             GameManager.gameOver = true;
             UIManager.Instance.PlayerWasCaught();
