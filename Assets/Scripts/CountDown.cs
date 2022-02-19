@@ -5,12 +5,11 @@ public class CountDown : MonoBehaviour
 {
 
     public GameObject textDisplay;
-    public Text timeUp;
     public int secsLeft = 20;
     public bool didTimeMinus = false;
+
     void Start()
     {
-        
         textDisplay.GetComponent<Text>().text = "00: " + secsLeft;
     }
 
@@ -40,7 +39,7 @@ public class CountDown : MonoBehaviour
         }
         if (secsLeft == 0)
         {
-            timeUp.gameObject.SetActive(true);
+            UIManager.Instance.TimeIsOver();
             GameManager.gameOver = true;
         }
         didTimeMinus = false;
