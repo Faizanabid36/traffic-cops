@@ -13,7 +13,6 @@ public class GameManager : Singleton<GameManager>
     {
         if (gameOver)
         {
-            Debug.Log("GAME OVER");
             UIManager.Instance.GameIsOver();
         }
         if (gameOver && Input.GetButtonDown("Fire1"))
