@@ -14,8 +14,7 @@ public class SpawnVehicleMove : MonoBehaviour
 
     void Start()
     {
-        GameObject gm=GameObject.Find("SpawnPath");
-        pathCreator = gm.GetComponent<PathCreator>();
+        
         if (pathCreator != null)
         {
             pathCreator.pathUpdated += OnPathChanged;
