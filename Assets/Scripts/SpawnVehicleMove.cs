@@ -34,6 +34,12 @@ public class SpawnVehicleMove : MonoBehaviour
             transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
         }
     }
+     void OnCollisionEnter(Collision other) {
+        if(other.gameObject.tag=="Player"){
+            UIManager.Instance.GameIsOver();
+            // Debug.Log("Car collided!!!!!");
+        }
+    }
 
     // private void OnDestroy()
     // {

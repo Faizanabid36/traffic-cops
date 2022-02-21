@@ -36,8 +36,9 @@ public class PlayerController : MonoBehaviour
     {
         pathCreator.pathUpdated -= OnPathChanged;
     }
-    private void OnCollisionEnter(Collision other) {
+     void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag=="Cars"){
+            UIManager.Instance.GameIsOver();
             Debug.Log("Car collided!!!!!");
         }
     }
