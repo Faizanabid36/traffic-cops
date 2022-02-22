@@ -16,10 +16,4 @@ public class WayPointsRenamer : MonoBehaviour
             counternum++;
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
