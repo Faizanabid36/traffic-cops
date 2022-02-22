@@ -8,7 +8,8 @@ public class WpPatrol : MonoBehaviour
     bool canMove, wpReached, receivedInput;
     string targetWpToGo;
     int currentWpNumber;
-    float maxSpeed = 0.5f;
+    [SerializeField]
+    float maxSpeed = 0f;
     GameObject startingPoint, wpToGo;
     Rigidbody rb;
     Transform waypoints;
@@ -47,7 +48,8 @@ public class WpPatrol : MonoBehaviour
         lookPos.y = 0;
         Quaternion rotation = Quaternion.LookRotation(lookPos);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * turningSpeed);
-        transform.position += transform.forward * Time.deltaTime * movementSpeed;
+        float speed = IsVehiclePlayer() ? maxSpeed : movementSpeed;
+        transform.position += transform.forward * Time.deltaTime * speed;
 
         if (!IsVehiclePlayer() && currentWpNumber == 0)
         {
@@ -63,12 +65,14 @@ public class WpPatrol : MonoBehaviour
         {
             if (maxSpeed < movementSpeed)
             {
-                maxSpeed = maxSpeed + 0.75f;
+                maxSpeed += 7.5f * Time.deltaTime;
             }
         }
         else
         {
-            maxSpeed = maxSpeed - 1.5f;
+            if (maxSpeed >= 0.5f)
+                maxSpeed -= 17.5f * Time.deltaTime;
+            //maxSpeed = maxSpeed - 0.5f;
         }
     }
 
@@ -76,9 +80,8 @@ public class WpPatrol : MonoBehaviour
     {
         if (canMove)
         {
-            if (IsVehiclePlayer())
+            if (IsVehiclePlayer() && !GameManager.gameOver)
             {
-                if (!GameManager.gameOver && receivedInput)
                     MoveVehicle();
             }
             else
