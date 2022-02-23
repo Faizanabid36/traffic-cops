@@ -18178,10 +18178,12 @@ MonoBehaviour:
   spawns:
   - name: TrafficWaypoint
     spawnAfterTime: 0
+    speed: 8
     prefab: {fileID: 5081996352111719050, guid: be897d791b195e94f9095fd74c890e0e, type: 3}
   - name: TrafficWaypoint
     spawnAfterTime: 2
-    prefab: {fileID: 5081996352111719050, guid: be897d791b195e94f9095fd74c890e0e, type: 3}
+    speed: 6
+    prefab: {fileID: 1981935595949527941, guid: fe360967c8dcda04eb104a797d540b0b, type: 3}
 --- !u!4 &1732450918
 Transform:
   m_ObjectHideFlags: 0

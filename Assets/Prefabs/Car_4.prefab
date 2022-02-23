@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 1987683254484059957}
   - component: {fileID: 1982962657055055896}
   - component: {fileID: 1982962657055055897}
-  - component: {fileID: 1982962657055055899}
+  - component: {fileID: 7974689975268186676}
   m_Layer: 0
   m_Name: Car_4
   m_TagString: Cars
@@ -310,7 +310,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.4691972, z: 2.1443672}
   m_Center: {x: 0, y: 0.2654014, z: -0.08738136}
---- !u!114 &1982962657055055899
+--- !u!114 &7974689975268186676
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -319,12 +319,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1981935595949527941}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2559ea9a3a684834d98497cfdad75502, type: 3}
+  m_Script: {fileID: 11500000, guid: 27b5ffbcf8f1ca946b307755200b8531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
-  pathCreator: {fileID: 0}
-  endOfPathInstruction: 0
+  movementSpeed: 8
+  turningSpeed: 2
+  waypointTag: 
+  maxSpeed: 0.5
 --- !u!1 &1981962662781989041
 GameObject:
   m_ObjectHideFlags: 0
