@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1453,36 +1453,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115693376}
   m_Mesh: {fileID: 1113200534779321807, guid: 007c420d2b8904ab59bc59a6d0698750, type: 3}
---- !u!1 &118501562
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 118501563}
-  m_Layer: 0
-  m_Name: PlayerHolder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &118501563
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 118501562}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 936361899}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &120847606
 GameObject:
   m_ObjectHideFlags: 3
@@ -9713,7 +9683,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 62315632}
-  - {fileID: 118501563}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -18321,11 +18290,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0420023ff82b1a343afe8f6843ff275c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Vehicles:
-  - {fileID: 1981935595949527941, guid: fe360967c8dcda04eb104a797d540b0b, type: 3}
-  - {fileID: 5081996352111719050, guid: be897d791b195e94f9095fd74c890e0e, type: 3}
-  - {fileID: 7367303714174952790, guid: 5392e90a939ba42a185307533b7ddbc8, type: 3}
-  - {fileID: 6457001403235906285, guid: 73787d036c8c7bf4b9e1927d79d3f314, type: 3}
   force: 100
   spawns:
   - name: TrafficWaypoint

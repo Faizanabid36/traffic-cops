@@ -33,6 +33,7 @@ public class WpPatrol : MonoBehaviour
         startingPoint = waypoints.GetChild(0).gameObject;
         targetWpToGo = startingPoint.gameObject.name;
         currentWpNumber = int.Parse(targetWpToGo.Split(char.Parse("-"))[1]);
+        Debug.Log("current wp number "+currentWpNumber);
         wpToGo = waypoints.GetChild(currentWpNumber).gameObject;
         canMove = true;
     }
