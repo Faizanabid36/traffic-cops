@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 6865977390446294475}
   - component: {fileID: 5808334892103161396}
   - component: {fileID: 7336894939066091023}
-  - component: {fileID: 2286192869819659512}
+  - component: {fileID: 1776956285}
   m_Layer: 0
   m_Name: Taxi
   m_TagString: Cars
@@ -391,7 +391,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.62830436, z: 2.1341987}
   m_Center: {x: 0, y: 0.28420055, z: 0.12357998}
---- !u!114 &2286192869819659512
+--- !u!114 &1776956285
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -400,12 +400,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5081996352111719050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2559ea9a3a684834d98497cfdad75502, type: 3}
+  m_Script: {fileID: 11500000, guid: 27b5ffbcf8f1ca946b307755200b8531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
-  pathCreator: {fileID: 0}
-  endOfPathInstruction: 0
+  movementSpeed: 6
+  turningSpeed: 2
+  waypointTag: 
+  maxSpeed: 0.5
 --- !u!1 &6795182468769517036
 GameObject:
   m_ObjectHideFlags: 0
