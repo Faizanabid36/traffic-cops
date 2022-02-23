@@ -5,8 +5,6 @@ using PathCreation;
 
 public class SpawnVehicle : MonoBehaviour
 {
-    public GameObject[] Vehicles;
-    private int i = -1, c = 0;
     public float force = 100f;
     public Spawn[] spawns;
 

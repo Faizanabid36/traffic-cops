@@ -61,6 +61,8 @@ public class WpPatrol : MonoBehaviour
     {
 
         receivedInput = Input.GetButton("Fire1");
+        if (GameManager.gameOver)
+            maxSpeed = 0f;
         if (receivedInput)
         {
             if (maxSpeed < movementSpeed)
@@ -72,8 +74,8 @@ public class WpPatrol : MonoBehaviour
         {
             if (maxSpeed >= 0.5f)
                 maxSpeed -= 17.5f * Time.deltaTime;
-            //maxSpeed = maxSpeed - 0.5f;
         }
+
     }
 
     void FixedUpdate()
@@ -82,7 +84,7 @@ public class WpPatrol : MonoBehaviour
         {
             if (IsVehiclePlayer() && !GameManager.gameOver)
             {
-                    MoveVehicle();
+                MoveVehicle();
             }
             else
             {
