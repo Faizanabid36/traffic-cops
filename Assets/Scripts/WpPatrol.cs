@@ -117,10 +117,10 @@ public class WpPatrol : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //if (collision.gameObject.CompareTag("Cars"))
-        //{
-        //    GameManager.gameOver = true;
-        //    Debug.Log("Car collided!!!!!");
-        //}
+        if (collision.gameObject.CompareTag("Player"))
+        {
+           GameManager.gameOver = true;
+           Debug.Log("Car collided!!!!!");
+        }
     }
 }
