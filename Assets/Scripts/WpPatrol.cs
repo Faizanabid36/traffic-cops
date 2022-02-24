@@ -33,7 +33,7 @@ public class WpPatrol : MonoBehaviour
         startingPoint = waypoints.GetChild(0).gameObject;
         targetWpToGo = startingPoint.gameObject.name;
         currentWpNumber = int.Parse(targetWpToGo.Split(char.Parse("-"))[1]);
-        Debug.Log("current wp number "+currentWpNumber);
+        Debug.Log("current wp number " + currentWpNumber);
         wpToGo = waypoints.GetChild(currentWpNumber).gameObject;
         canMove = true;
     }
@@ -64,17 +64,21 @@ public class WpPatrol : MonoBehaviour
         receivedInput = Input.GetButton("Fire1");
         if (GameManager.gameOver)
             maxSpeed = 0f;
+        if (GameManager.levelCompleted)
+        maxSpeed = 0f;
         if (receivedInput)
         {
             if (maxSpeed < movementSpeed)
             {
-                maxSpeed += 7.5f * Time.deltaTime;
+                maxSpeed += 10f * Time.deltaTime;
             }
         }
         else
         {
             if (maxSpeed >= 0.5f)
-                maxSpeed -= 17.5f * Time.deltaTime;
+                maxSpeed -= 20f * Time.deltaTime;
+            else
+                maxSpeed = 0f;
         }
 
     }
@@ -83,7 +87,7 @@ public class WpPatrol : MonoBehaviour
     {
         if (canMove)
         {
-            if (IsVehiclePlayer() && !GameManager.gameOver)
+            if (IsVehiclePlayer() && !GameManager.gameOver && !GameManager.levelCompleted)
             {
                 MoveVehicle();
             }
@@ -117,10 +121,10 @@ public class WpPatrol : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //if (collision.gameObject.CompareTag("Cars"))
-        //{
-        //    GameManager.gameOver = true;
-        //    Debug.Log("Car collided!!!!!");
-        //}
+        if (IsVehiclePlayer() && collision.gameObject.CompareTag("Cars"))
+        {
+           GameManager.gameOver = true;
+           Debug.Log("Car collided!!!!!");
+        }
     }
 }

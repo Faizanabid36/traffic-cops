@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
     public static bool gameOver = false;
+    public static bool levelCompleted = false;
 
     public static bool nextLevel = false, levelWon = false;
 
