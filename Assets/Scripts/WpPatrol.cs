@@ -119,6 +119,7 @@ public class WpPatrol : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            CameraShake.Instance.ShakeCamera();
            GameManager.gameOver = true;
            Debug.Log("Car collided!!!!!");
         }

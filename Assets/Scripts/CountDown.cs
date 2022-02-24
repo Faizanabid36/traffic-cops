@@ -40,7 +40,7 @@ public class CountDown : MonoBehaviour
         if (secsLeft == 0)
         {
             UIManager.Instance.TimeIsOver();
-            GameManager.gameOver = true;
+           UIManager.Instance.GameIsOver();
         }
         didTimeMinus = false;
     }
