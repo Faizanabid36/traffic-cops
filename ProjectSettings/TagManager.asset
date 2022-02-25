@@ -8,6 +8,10 @@ TagManager:
   - Cars
   - TrafficWaypoint
   - PlayerWaypoint
+  - TrafficWayPoint1
+  - Traffic-path2
+  - TrafficWayPoint2
+  - TrafficWayPoint3
   layers:
   - Default
   - TransparentFX
