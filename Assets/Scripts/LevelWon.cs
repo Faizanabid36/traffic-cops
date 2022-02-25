@@ -14,6 +14,7 @@ public class LevelWon : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            
             GameManager.levelCompleted = true;
             UIManager.Instance.LevelCompleted();
             StartCoroutine(StopForSecsCoroutine());

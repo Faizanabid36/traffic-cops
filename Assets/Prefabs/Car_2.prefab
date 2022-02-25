@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 6453504468407739997}
   - component: {fileID: 6457662118269583629}
   - component: {fileID: 6457662118269583627}
-  - component: {fileID: 6457662118269583626}
+  - component: {fileID: -3696704895656000437}
   m_Layer: 0
   m_Name: Car_2
   m_TagString: Cars
@@ -391,7 +391,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6457662118269583626
+--- !u!114 &-3696704895656000437
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -400,12 +400,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6457001403235906285}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2559ea9a3a684834d98497cfdad75502, type: 3}
+  m_Script: {fileID: 11500000, guid: 27b5ffbcf8f1ca946b307755200b8531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
-  pathCreator: {fileID: 0}
-  endOfPathInstruction: 0
+  movementSpeed: 4.85
+  turningSpeed: 1
+  waypointTag: 
+  maxSpeed: 0.6
 --- !u!1 &6457590116719210093
 GameObject:
   m_ObjectHideFlags: 0
