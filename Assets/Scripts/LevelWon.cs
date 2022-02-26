@@ -14,10 +14,10 @@ public class LevelWon : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            FindObjectOfType<AudioManager>().Stop("Day1");
-            FindObjectOfType<AudioManager>().Stop("Traffic");
-            FindObjectOfType<AudioManager>().Play("Win");
-            FindObjectOfType<AudioManager>().Play("MaleCheer");
+            AudioManager.Instance.Stop("Day1");
+            AudioManager.Instance.Stop("Traffic");
+            AudioManager.Instance.Play("Win");
+            AudioManager.Instance.Play("MaleCheer");
             
             GameManager.levelCompleted = true;
             UIManager.Instance.LevelCompleted();

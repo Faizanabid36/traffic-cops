@@ -9,8 +9,7 @@ public class WpPatrol : MonoBehaviour
     bool canMove, wpReached, receivedInput;
     string targetWpToGo;
     int currentWpNumber;
-    [SerializeField]
-    float maxSpeed = 0f;
+    float maxSpeed = 0f, maxTurningSpeed = 0f;
     GameObject startingPoint, wpToGo;
     Rigidbody rb;
     Transform waypoints;
@@ -21,7 +20,7 @@ public class WpPatrol : MonoBehaviour
         canMove = false;
         Invoke("PatrolNow", 1f);
 
-        FindObjectOfType<AudioManager>().Play("Traffic");
+        AudioManager.Instance.Play("Traffic");
     }
 
     public void PatrolNow()
@@ -47,34 +46,30 @@ public class WpPatrol : MonoBehaviour
 
     private void MoveVehicle()
     {
-        
+
         Vector3 lookPos = wpToGo.transform.position - transform.position;
         lookPos.y = 0;
         Quaternion rotation = Quaternion.LookRotation(lookPos);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * turningSpeed);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * maxTurningSpeed);
         float speed = IsVehiclePlayer() ? maxSpeed : movementSpeed;
         transform.position += transform.forward * Time.deltaTime * speed;
 
         if (!IsVehiclePlayer() && currentWpNumber == 0)
-        {
             PatrolNow();
-        }
+
     }
 
     private void Update()
     {
-
         receivedInput = Input.GetButton("Fire1");
         if (GameManager.gameOver)
             maxSpeed = 0f;
         if (GameManager.levelCompleted)
-        maxSpeed = 0f;
+            maxSpeed = 0f;
         if (receivedInput)
         {
             if (maxSpeed < movementSpeed)
-            {
                 maxSpeed += 10f * Time.deltaTime;
-            }
         }
         else
         {
@@ -83,6 +78,7 @@ public class WpPatrol : MonoBehaviour
             else
                 maxSpeed = 0f;
         }
+        maxTurningSpeed= maxSpeed/3;
 
     }
 
@@ -91,13 +87,9 @@ public class WpPatrol : MonoBehaviour
         if (canMove)
         {
             if (IsVehiclePlayer() && !GameManager.gameOver && !GameManager.levelCompleted)
-            {
                 MoveVehicle();
-            }
             else
-            {
                 MoveVehicle();
-            }
         }
     }
 
@@ -116,19 +108,16 @@ public class WpPatrol : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-
         if (other.tag == waypointTag && wpReached)
             wpReached = false;
-
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (IsVehiclePlayer() && collision.gameObject.CompareTag("Cars"))
         {
-            FindObjectOfType<AudioManager>().Play("Crash");
-           GameManager.gameOver = true;
-           
+            AudioManager.Instance.PlayOneShot("Crash");
+            GameManager.gameOver = true;
         }
     }
 }

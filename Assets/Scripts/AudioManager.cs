@@ -1,7 +1,7 @@
 using UnityEngine.Audio;
 using UnityEngine;
 using System;
-public class AudioManager : MonoBehaviour
+public class AudioManager : Singleton<AudioManager>
 {
     public Sound[] sounds;
     void Awake()
@@ -24,7 +24,11 @@ public class AudioManager : MonoBehaviour
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.Play();
-        // FindObjectOfType<AudioManager>().Play("name");
+    }
+    public void PlayOneShot(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        s.source.PlayOneShot(s.clip);
     }
 
     
