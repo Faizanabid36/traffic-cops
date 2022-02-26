@@ -404,9 +404,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 6
-  turningSpeed: 2
-  waypointTag: 
-  maxSpeed: 0.5
+  turningSpeed: 2.24
+  waypointTag: TrafficWayPoint2
+  maxSpeed: 0.7
 --- !u!1 &6795182468769517036
 GameObject:
   m_ObjectHideFlags: 0

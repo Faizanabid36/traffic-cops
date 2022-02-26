@@ -40,6 +40,9 @@ public class CountDown : MonoBehaviour
         if (secsLeft == 0)
         {
             UIManager.Instance.TimeIsOver();
+            FindObjectOfType<AudioManager>().Stop("Day1");
+            FindObjectOfType<AudioManager>().Stop("Traffic");
+            FindObjectOfType<AudioManager>().Play("Loose");
             GameManager.gameOver = true;
         }
         didTimeMinus = false;

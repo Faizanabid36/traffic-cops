@@ -322,7 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27b5ffbcf8f1ca946b307755200b8531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 8
+  movementSpeed: 3.32
   turningSpeed: 2
   waypointTag: 
   maxSpeed: 0.5
