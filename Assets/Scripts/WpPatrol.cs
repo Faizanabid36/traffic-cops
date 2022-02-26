@@ -3,6 +3,7 @@
 public class WpPatrol : MonoBehaviour
 {
     public float movementSpeed = 6f, turningSpeed = 1f;
+    [HideInInspector]
     public string waypointTag;
 
     bool canMove, wpReached, receivedInput;
@@ -19,6 +20,8 @@ public class WpPatrol : MonoBehaviour
     {
         canMove = false;
         Invoke("PatrolNow", 1f);
+
+        FindObjectOfType<AudioManager>().Play("Traffic");
     }
 
     public void PatrolNow()
@@ -33,7 +36,6 @@ public class WpPatrol : MonoBehaviour
         startingPoint = waypoints.GetChild(0).gameObject;
         targetWpToGo = startingPoint.gameObject.name;
         currentWpNumber = int.Parse(targetWpToGo.Split(char.Parse("-"))[1]);
-        Debug.Log("current wp number " + currentWpNumber);
         wpToGo = waypoints.GetChild(currentWpNumber).gameObject;
         canMove = true;
     }
@@ -45,6 +47,7 @@ public class WpPatrol : MonoBehaviour
 
     private void MoveVehicle()
     {
+        
         Vector3 lookPos = wpToGo.transform.position - transform.position;
         lookPos.y = 0;
         Quaternion rotation = Quaternion.LookRotation(lookPos);
@@ -123,8 +126,9 @@ public class WpPatrol : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            FindObjectOfType<AudioManager>().Play("Crash");
            GameManager.gameOver = true;
-           Debug.Log("Car collided!!!!!");
+           
         }
     }
 }
