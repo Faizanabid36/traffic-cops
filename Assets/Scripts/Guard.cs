@@ -17,6 +17,8 @@ public class Guard : MonoBehaviour
     private float viewAngle;
     private Transform player;
     private Animator animator;
+    
+    private bool isWhistling;
 
     private void Start()
     {
@@ -48,10 +50,13 @@ public class Guard : MonoBehaviour
             spotlight.color = Color.red;
             GameManager.gameOver = true;
             UIManager.Instance.PlayerWasCaught();
-            
-            FindObjectOfType<AudioManager>().Stop("Day1");
-            // FindObjectOfType<AudioManager>().Stop("Traffic");
-            FindObjectOfType<AudioManager>().Play("Traffic_Whistle");
+
+            AudioManager.Instance.Stop("Day1");
+            if (!isWhistling)
+            {
+                AudioManager.Instance.Play("Traffic_Whistle");
+                isWhistling = true;
+            }
         }
         else
             spotlight.color = spotlightColor;

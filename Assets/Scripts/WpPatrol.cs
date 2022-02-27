@@ -6,10 +6,10 @@ public class WpPatrol : MonoBehaviour
     [HideInInspector]
     public string waypointTag;
 
-    bool canMove, wpReached, receivedInput;
+    bool canMove, wpReached;
     string targetWpToGo;
     int currentWpNumber;
-    float maxSpeed = 0f, maxTurningSpeed = 0f;
+    float maxSpeed = 0f;
     GameObject startingPoint, wpToGo;
     Rigidbody rb;
     Transform waypoints;
@@ -18,8 +18,8 @@ public class WpPatrol : MonoBehaviour
     void Start()
     {
         canMove = false;
+        GameManager.levelCompleted = false; 
         Invoke("PatrolNow", 1f);
-
         AudioManager.Instance.Play("Traffic");
     }
 
@@ -50,7 +50,10 @@ public class WpPatrol : MonoBehaviour
         Vector3 lookPos = wpToGo.transform.position - transform.position;
         lookPos.y = 0;
         Quaternion rotation = Quaternion.LookRotation(lookPos);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * maxTurningSpeed);
+        // if (IsVehiclePlayer())
+        //     transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * maxTurningSpeed);
+        // else
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * turningSpeed);
         float speed = IsVehiclePlayer() ? maxSpeed : movementSpeed;
         transform.position += transform.forward * Time.deltaTime * speed;
 
@@ -61,15 +64,16 @@ public class WpPatrol : MonoBehaviour
 
     private void Update()
     {
-        receivedInput = Input.GetButton("Fire1");
         if (GameManager.gameOver)
             maxSpeed = 0f;
         if (GameManager.levelCompleted)
             maxSpeed = 0f;
-        if (receivedInput)
+        if (Input.GetButton("Fire1"))
         {
             if (maxSpeed < movementSpeed)
+            {
                 maxSpeed += 10f * Time.deltaTime;
+            }
         }
         else
         {
@@ -78,8 +82,6 @@ public class WpPatrol : MonoBehaviour
             else
                 maxSpeed = 0f;
         }
-        maxTurningSpeed= maxSpeed/3;
-
     }
 
     void FixedUpdate()

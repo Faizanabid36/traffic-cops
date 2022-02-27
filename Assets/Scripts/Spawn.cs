@@ -7,4 +7,6 @@ public class Spawn
     public float spawnAfterTime;
     public float speed;
     public GameObject prefab;
+    
+    public float turningSpeed = 3.5f;
 }

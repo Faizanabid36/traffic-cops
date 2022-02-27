@@ -25,6 +25,7 @@ public class SpawnVehicle : MonoBehaviour
         WpPatrol wp = spawns[currentSpawn].prefab.GetComponent<WpPatrol>();
         wp.waypointTag = spawns[currentSpawn].name;
         wp.movementSpeed = spawns[currentSpawn].speed;
+        wp.turningSpeed = spawns[currentSpawn].turningSpeed;
         spawns[currentSpawn].prefab.GetComponent<WpPatrol>().waypointTag = spawns[currentSpawn].name;
         Instantiate(spawns[currentSpawn].prefab, transform.position, Quaternion.identity);
         ++currentSpawn;

@@ -14,6 +14,8 @@ public class GuardRotation : MonoBehaviour
     private Transform player;
     private Animator animator;
     public string armToRaise = "left";
+    
+    private bool isWhistling;
 
 
     private void Start()
@@ -71,6 +73,12 @@ public class GuardRotation : MonoBehaviour
             spotlight.color = Color.red;
             GameManager.gameOver = true;
             UIManager.Instance.PlayerWasCaught();
+            
+            if (!isWhistling)
+            {
+                AudioManager.Instance.Play("Traffic_Whistle");
+                isWhistling = true;
+            }
         }
         else
             spotlight.color = spotlightColor;
