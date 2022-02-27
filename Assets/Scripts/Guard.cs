@@ -48,6 +48,10 @@ public class Guard : MonoBehaviour
             spotlight.color = Color.red;
             GameManager.gameOver = true;
             UIManager.Instance.PlayerWasCaught();
+            
+            FindObjectOfType<AudioManager>().Stop("Day1");
+            // FindObjectOfType<AudioManager>().Stop("Traffic");
+            FindObjectOfType<AudioManager>().Play("Traffic_Whistle");
         }
         else
             spotlight.color = spotlightColor;

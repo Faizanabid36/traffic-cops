@@ -107,7 +107,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1981597941725702919}
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00000001525879, y: 0.00000001525879, z: 0.00000024414064}
+  m_LocalPosition: {x: -0.00000001525879, y: 0.02, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1987683254484059957}
@@ -308,8 +308,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.4691972, z: 2.1443672}
-  m_Center: {x: 0, y: 0.2654014, z: -0.08738136}
+  m_Size: {x: 1, y: 0.4691972, z: 2.3680964}
+  m_Center: {x: 0, y: 0.2654014, z: 0.024483204}
 --- !u!114 &7974689975268186676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,7 +325,6 @@ MonoBehaviour:
   movementSpeed: 5
   turningSpeed: 2
   waypointTag: TrafficWayPoint1
-  maxSpeed: 0.5
 --- !u!1 &1981962662781989041
 GameObject:
   m_ObjectHideFlags: 0
