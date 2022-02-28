@@ -116,7 +116,7 @@ public class WpPatrol : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (IsVehiclePlayer() && collision.gameObject.CompareTag("Cars"))
+        if (IsVehiclePlayer() && collision.gameObject.CompareTag("Cars")&&GameManager.gameOver==false)
         {
             AudioManager.Instance.PlayOneShot("Crash");
             GameManager.gameOver = true;

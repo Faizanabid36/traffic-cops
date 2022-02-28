@@ -37,7 +37,7 @@ public class CountDown : MonoBehaviour
         {
             textDisplay.GetComponent<Text>().text = "00: " + secsLeft;
         }
-        if (secsLeft == 0 && !GameManager.levelCompleted)
+        if (secsLeft == 0 && !GameManager.levelCompleted &&GameManager.gameOver==false)
         {
             UIManager.Instance.TimeIsOver();
             FindObjectOfType<AudioManager>().Stop("Day1");
