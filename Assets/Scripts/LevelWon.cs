@@ -31,6 +31,12 @@ public class LevelWon : MonoBehaviour
     IEnumerator StopForSecsCoroutine()
     {
         yield return new WaitForSeconds(2);
+        if(SceneManager.GetActiveScene().buildIndex==5){
+            SceneManager.LoadScene(0);
+
+        }
+        else{
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 }
