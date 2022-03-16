@@ -12,6 +12,9 @@ TagManager:
   - Traffic-path2
   - TrafficWayPoint2
   - TrafficWayPoint3
+  - 5rupees
+  - 10rupees
+  - 50rupees
   layers:
   - Default
   - TransparentFX

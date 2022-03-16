@@ -79,3 +79,18 @@ MonoBehaviour:
     volume: 0.34
     pitch: 1.66
     source: {fileID: 0}
+  - name: 5rupees
+    clip: {fileID: 8300000, guid: be549f600f03ad943b1a68b102c9e393, type: 3}
+    volume: 0.41
+    pitch: 1.27
+    source: {fileID: 0}
+  - name: 10rupees
+    clip: {fileID: 8300000, guid: 70aace5aaf5554f4e89173308c230459, type: 3}
+    volume: 0.44
+    pitch: 1.21
+    source: {fileID: 0}
+  - name: 50rupees
+    clip: {fileID: 8300000, guid: dbc097c9af167814fb3ef35e4ab35ee0, type: 3}
+    volume: 0.42
+    pitch: 1.27
+    source: {fileID: 0}
