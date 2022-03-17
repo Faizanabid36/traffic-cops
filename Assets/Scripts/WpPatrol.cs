@@ -119,6 +119,7 @@ public class WpPatrol : MonoBehaviour
         if (IsVehiclePlayer() && collision.gameObject.CompareTag("Cars")&&GameManager.gameOver==false)
         {
             AudioManager.Instance.PlayOneShot("Crash");
+            Handheld.Vibrate();
             GameManager.gameOver = true;
         }
     }

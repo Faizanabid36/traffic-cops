@@ -36,10 +36,10 @@ public class PlayerController : MonoBehaviour
     {
         pathCreator.pathUpdated -= OnPathChanged;
     }
-    private void OnCollisionEnter(Collision other) {
-        if(other.gameObject.tag=="Cars"){
-            Debug.Log("Car collided!!!!!");
-        }
-    }
+    // private void OnCollisionEnter(Collision other) {
+    //     if(other.gameObject.tag=="Cars"){
+    //       Handheld.Vibrate();
+    //     }
+    // }
 
 }
